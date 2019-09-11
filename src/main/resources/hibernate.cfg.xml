@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/restaurant_jsp_database?serverTimezone=Europe/Dublin&amp;createDatabaseIfNotExist=true</property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.user">root</property>
+        <property name="connection.password">root</property>
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- update rewrite column if missing -->
+        <!-- create reconstruct database (there tables) - We are use if the database is false (WARNING! drop database!) -->
+        <!-- create-drop reconstruct database (not only table) -->
+        <!-- validate - do nothing - verified -->
+        <!-- do you like to create new database?-->
+        <property name="hbm2ddl.auto">update</property> <!-- hibernate to data definition language - policy generate table  -->
+        <property name="show_sql">false</property>
+
+        <mapping class="com.mateuszmedon.project.jsprestaurant.model.Order"/>
+        <mapping class="com.mateuszmedon.project.jsprestaurant.model.Product"/>
+
+
+    </session-factory>
+</hibernate-configuration>
